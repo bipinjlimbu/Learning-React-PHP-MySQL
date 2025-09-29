@@ -1,7 +1,7 @@
 export default function ListUser() {
   return (
     <div>
-      <h2>User List</h2>
+      <h2 className="componentHead">User List</h2>
     </div>
   );
 }

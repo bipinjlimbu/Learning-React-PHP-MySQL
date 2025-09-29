@@ -6,19 +6,19 @@ import EditUser from "./components/EditUser";
 
 const routes = createBrowserRouter([
   {
-    element: <MainLayout />, // layout wrapper
+    element: <MainLayout/>,
     children: [
       {
         path: '/',
-        element: <ListUser />,
+        element: <ListUser/>,
       },
       {
         path: '/create',
-        element: <CreateUser />,
+        element: <CreateUser/>,
       },
       {
         path: '/edit/:id',
-        element: <EditUser />,
+        element: <EditUser/>,
       },
       {
         path: '*',

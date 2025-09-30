@@ -19,7 +19,7 @@ export default function CreateUser() {
 
   return (
     <div>
-      <h2 className="componentHead">Create User</h2>
+      <h1 className="componentHead">Create User</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name"> Name: </label>
         <input type="text" id="name" name="name" onChange={handleChange}required />

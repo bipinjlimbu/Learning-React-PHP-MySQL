@@ -1,8 +1,13 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function CreateUser() {
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    axios.post("http://localhost:3000/users", user)
+    console.log("user created", user);
+    
   }
 
   const [user, setUser] = useState({

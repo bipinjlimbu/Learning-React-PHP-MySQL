@@ -1,0 +1,1 @@
+Move the files inside Backend folder to xampp/htdocs/api folder.

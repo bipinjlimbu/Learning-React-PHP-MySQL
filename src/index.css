@@ -77,3 +77,48 @@ form button {
 form button:hover {
     background-color: #2563eb;
 }
+
+.listUser {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.listUser table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.listUser th, .listUser td {
+    border: 1px solid #d1d5db;
+    padding: 0.75rem;
+    text-align: left;
+}
+.listUser th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+}
+.listUser h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #111827;
+}
+.listUser table tbody tr td a {
+    color: #3b82f6;
+    padding: 1rem;
+    text-decoration: none;
+}
+.listUser table tbody tr td a:hover {
+    text-decoration: underline;
+} 
+.listUser table tbody tr td button {
+    padding: 0.5rem 1rem;
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+} 
+.listUser table tbody tr td button:hover {
+    background-color: #dc2626;
+}

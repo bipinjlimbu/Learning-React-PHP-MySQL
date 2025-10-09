@@ -38,7 +38,7 @@ export default function ListUser() {
                             <td>{user.email}</td>
                             <td>{user.number}</td>
                             <td>{user.address}</td>
-                            <td><Link>Edit</Link></td>
+                            <td><Link to = "/edit/{user.id}" >Edit</Link></td>
                             <td><button>Delete</button></td>
                         </tr>
                     )}

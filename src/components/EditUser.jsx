@@ -1,44 +1,61 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function EditUser() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const navigate = useNavigate();
 
-    axios.post("http://localhost/api/user/save", user)
-    console.log("user created", user);
-    
-  }
+    const [inputs, setInputs] = useState({
+        name: "",
+        email: "",
+        number: "",
+        address: ""
+    });
 
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    number: "",
-    address: ""
-  });
+    const {id} = useParams();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  }
+    useEffect(() => {
+        getUser();
+    }, []);
 
-  return (
+    function getUser() {
+        axios.get(`http://localhost/api/user/${id}`).then(function(response) {
+            console.log(response.data[0]);
+            setInputs(response.data[0]);
+        });
+    }
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}));
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        axios.put(`http://localhost/api/user/${id}/edit`, inputs).then(function(response){
+            console.log(response.data);
+            navigate('/');
+        });
+        
+    }
+    return (
     <div>
       <h1 className="componentHead">Edit User</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name"> Name: </label>
-        <input type="text" id="name" name="name" onChange={handleChange}required />
+        <input type="text" id="name" name="name" value={inputs.name} onChange={handleChange} required />
         <br />
         <label htmlFor="email"> Email: </label>
-        <input type="text" id="email" name="email" onChange={handleChange} required />
+        <input type="text" id="email" name="email" value={inputs.email} onChange={handleChange} required />
         <br />
         <label htmlFor="number"> Number: </label>
-        <input type="text" id="number" name="number" onChange={handleChange} required />
+        <input type="text" id="number" name="number" value={inputs.number} onChange={handleChange} required />
         <br />
         <label htmlFor="address"> Address: </label>
-        <input type="text" id="address" name="address" onChange={handleChange} required />
+        <input type="text" id="address" name="address" value={inputs.address} onChange={handleChange} required />
         <br />
-        <button type="submit">Create User</button>
+        <button type="submit">Save Changes</button>
       </form>
     </div>
   );
